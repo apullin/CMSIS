@@ -162,56 +162,59 @@ const arm_cfft_instance_q15 arm_cfft_sR_q15_len4096 = {
 //Floating-point structs
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len32 = {
-	.Sint = &arm_cfft_sR_f32_len16,
+	.Sint = {16, twiddleCoef_32, armBitRevIndexTable32, ARMBITREVINDEXTABLE__32_TABLE_LENGTH},
     .fftLenRFFT = 32u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_32;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_32
 };
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len64 = {
-	.Sint = &arm_cfft_sR_f32_len32,
+	.Sint = {32, twiddleCoef_32, armBitRevIndexTable32, ARMBITREVINDEXTABLE__32_TABLE_LENGTH},
     .fftLenRFFT = 64u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_64;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_64
 };
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len128 = {
-	.Sint = &arm_cfft_sR_f32_len64,
+	.Sint = {64, twiddleCoef_64, armBitRevIndexTable64, ARMBITREVINDEXTABLE__64_TABLE_LENGTH},
     .fftLenRFFT = 128u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_128;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_128
 };
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len256 = {
-	.Sint = &arm_cfft_sR_f32_len128,
+	.Sint = {128, twiddleCoef_128, armBitRevIndexTable128, ARMBITREVINDEXTABLE_128_TABLE_LENGTH},
     .fftLenRFFT = 256u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_256;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_256
 };
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len512 = {
-	.Sint = &arm_cfft_sR_f32_len256,
+	.Sint = {256, twiddleCoef_256, armBitRevIndexTable256, ARMBITREVINDEXTABLE_256_TABLE_LENGTH},
     .fftLenRFFT = 512u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_512;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_512
 };
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len1024 = {
-	.Sint = &arm_cfft_sR_f32_len512,
+	.Sint = {512, twiddleCoef_512, armBitRevIndexTable512, ARMBITREVINDEXTABLE_512_TABLE_LENGTH},
     .fftLenRFFT = 1024u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_1024;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_1024
 };
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len2048 = {
-	.Sint = &arm_cfft_sR_f32_len1024,
+	.Sint = {1024, twiddleCoef_1024, armBitRevIndexTable1024, ARMBITREVINDEXTABLE1024_TABLE_LENGTH},
     .fftLenRFFT = 2048u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_2048;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_2048
 };
 
 const arm_rfft_fast_instance_f32 arm_rfft_fast_sR_f32_len4096 = {
-	.Sint = &arm_cfft_sR_f32_len2048,
+	.Sint = {2048, twiddleCoef_2048, armBitRevIndexTable2048, ARMBITREVINDEXTABLE2048_TABLE_LENGTH},
     .fftLenRFFT = 4096u,
-    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_4096;
+    .pTwiddleRFFT = (float32_t *) twiddleCoef_rfft_4096
 };
 
 //Fixed-point structs
 
 //q31_t
+
+extern q31_t realCoefAQ31[8192];
+extern q31_t realCoefBQ31[8192];
 
 const arm_rfft_instance_q31 arm_rfft_sR_q31_len32 = {
 	.fftLenReal = 32u,
@@ -304,6 +307,9 @@ const arm_rfft_instance_q31 arm_rfft_sR_q31_len8192 = {
 };
 
 //q15_t
+
+extern q15_t realCoefAQ15[8192];
+extern q15_t realCoefBQ15[8192];
 
 const arm_rfft_instance_q15 arm_rfft_sR_q15_len32 = {
 	.fftLenReal = 32u,

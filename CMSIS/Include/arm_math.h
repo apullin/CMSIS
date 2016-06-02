@@ -481,7 +481,7 @@ extern "C"
   /**
    * @brief Clips Q63 to Q31 values.
    */
-  static __INLINE q31_t clip_q63_to_q31(
+  __INLINE q31_t clip_q63_to_q31(
   q63_t x)
   {
     return ((q31_t) (x >> 32) != ((q31_t) x >> 31)) ?
@@ -491,7 +491,7 @@ extern "C"
   /**
    * @brief Clips Q63 to Q15 values.
    */
-  static __INLINE q15_t clip_q63_to_q15(
+  __INLINE q15_t clip_q63_to_q15(
   q63_t x)
   {
     return ((q31_t) (x >> 32) != ((q31_t) x >> 31)) ?
@@ -501,7 +501,7 @@ extern "C"
   /**
    * @brief Clips Q31 to Q7 values.
    */
-  static __INLINE q7_t clip_q31_to_q7(
+  __INLINE q7_t clip_q31_to_q7(
   q31_t x)
   {
     return ((q31_t) (x >> 24) != ((q31_t) x >> 23)) ?
@@ -511,7 +511,7 @@ extern "C"
   /**
    * @brief Clips Q31 to Q15 values.
    */
-  static __INLINE q15_t clip_q31_to_q15(
+  __INLINE q15_t clip_q31_to_q15(
   q31_t x)
   {
     return ((q31_t) (x >> 16) != ((q31_t) x >> 15)) ?
@@ -522,7 +522,7 @@ extern "C"
    * @brief Multiplies 32 X 64 and returns 32 bit result in 2.30 format.
    */
 
-  static __INLINE q63_t mult32x64(
+  __INLINE q63_t mult32x64(
   q63_t x,
   q31_t y)
   {
@@ -537,10 +537,10 @@ extern "C"
  */
 /* note: function can be removed when all toolchain support __CLZ for Cortex-M0 */
 #if defined (ARM_MATH_CM0_FAMILY) && ((defined (__ICCARM__))  )
-  static __INLINE uint32_t __CLZ(
+  __INLINE uint32_t __CLZ(
   q31_t data);
 
-  static __INLINE uint32_t __CLZ(
+  __INLINE uint32_t __CLZ(
   q31_t data)
   {
     uint32_t count = 0;
@@ -560,7 +560,7 @@ extern "C"
    * @brief Function to Calculates 1/in (reciprocal) value of Q31 Data type.
    */
 
-  static __INLINE uint32_t arm_recip_q31(
+  __INLINE uint32_t arm_recip_q31(
   q31_t in,
   q31_t * dst,
   q31_t * pRecipTable)
@@ -611,7 +611,7 @@ extern "C"
   /**
    * @brief Function to Calculates 1/in (reciprocal) value of Q15 Data type.
    */
-  static __INLINE uint32_t arm_recip_q15(
+  __INLINE uint32_t arm_recip_q15(
   q15_t in,
   q15_t * dst,
   q15_t * pRecipTable)
@@ -663,7 +663,7 @@ extern "C"
    * @brief C custom defined intrinisic function for only M0 processors
    */
 #if defined(ARM_MATH_CM0_FAMILY)
-  static __INLINE q31_t __SSAT(
+  __INLINE q31_t __SSAT(
   q31_t x,
   uint32_t y)
   {
@@ -707,7 +707,7 @@ extern "C"
   /*
    * @brief C custom defined QADD8 for M3 and M0 processors
    */
-  static __INLINE uint32_t __QADD8(
+  __INLINE uint32_t __QADD8(
   uint32_t x,
   uint32_t y)
   {
@@ -725,7 +725,7 @@ extern "C"
   /*
    * @brief C custom defined QSUB8 for M3 and M0 processors
    */
-  static __INLINE uint32_t __QSUB8(
+  __INLINE uint32_t __QSUB8(
   uint32_t x,
   uint32_t y)
   {
@@ -743,7 +743,7 @@ extern "C"
   /*
    * @brief C custom defined QADD16 for M3 and M0 processors
    */
-  static __INLINE uint32_t __QADD16(
+  __INLINE uint32_t __QADD16(
   uint32_t x,
   uint32_t y)
   {
@@ -760,7 +760,7 @@ extern "C"
   /*
    * @brief C custom defined SHADD16 for M3 and M0 processors
    */
-  static __INLINE uint32_t __SHADD16(
+  __INLINE uint32_t __SHADD16(
   uint32_t x,
   uint32_t y)
   {
@@ -776,7 +776,7 @@ extern "C"
   /*
    * @brief C custom defined QSUB16 for M3 and M0 processors
    */
-  static __INLINE uint32_t __QSUB16(
+  __INLINE uint32_t __QSUB16(
   uint32_t x,
   uint32_t y)
   {
@@ -792,7 +792,7 @@ extern "C"
   /*
    * @brief C custom defined SHSUB16 for M3 and M0 processors
    */
-  static __INLINE uint32_t __SHSUB16(
+  __INLINE uint32_t __SHSUB16(
   uint32_t x,
   uint32_t y)
   {
@@ -808,7 +808,7 @@ extern "C"
   /*
    * @brief C custom defined QASX for M3 and M0 processors
    */
-  static __INLINE uint32_t __QASX(
+  __INLINE uint32_t __QASX(
   uint32_t x,
   uint32_t y)
   {
@@ -824,7 +824,7 @@ extern "C"
   /*
    * @brief C custom defined SHASX for M3 and M0 processors
    */
-  static __INLINE uint32_t __SHASX(
+  __INLINE uint32_t __SHASX(
   uint32_t x,
   uint32_t y)
   {
@@ -840,7 +840,7 @@ extern "C"
   /*
    * @brief C custom defined QSAX for M3 and M0 processors
    */
-  static __INLINE uint32_t __QSAX(
+  __INLINE uint32_t __QSAX(
   uint32_t x,
   uint32_t y)
   {
@@ -856,7 +856,7 @@ extern "C"
   /*
    * @brief C custom defined SHSAX for M3 and M0 processors
    */
-  static __INLINE uint32_t __SHSAX(
+  __INLINE uint32_t __SHSAX(
   uint32_t x,
   uint32_t y)
   {
@@ -872,7 +872,7 @@ extern "C"
   /*
    * @brief C custom defined SMUSDX for M3 and M0 processors
    */
-  static __INLINE uint32_t __SMUSDX(
+  __INLINE uint32_t __SMUSDX(
   uint32_t x,
   uint32_t y)
   {
@@ -883,7 +883,7 @@ extern "C"
   /*
    * @brief C custom defined SMUADX for M3 and M0 processors
    */
-  static __INLINE uint32_t __SMUADX(
+  __INLINE uint32_t __SMUADX(
   uint32_t x,
   uint32_t y)
   {
@@ -895,7 +895,7 @@ extern "C"
   /*
    * @brief C custom defined QADD for M3 and M0 processors
    */
-  static __INLINE int32_t __QADD(
+  __INLINE int32_t __QADD(
   int32_t x,
   int32_t y)
   {
@@ -906,7 +906,7 @@ extern "C"
   /*
    * @brief C custom defined QSUB for M3 and M0 processors
    */
-  static __INLINE int32_t __QSUB(
+  __INLINE int32_t __QSUB(
   int32_t x,
   int32_t y)
   {
@@ -917,7 +917,7 @@ extern "C"
   /*
    * @brief C custom defined SMLAD for M3 and M0 processors
    */
-  static __INLINE uint32_t __SMLAD(
+  __INLINE uint32_t __SMLAD(
   uint32_t x,
   uint32_t y,
   uint32_t sum)
@@ -931,7 +931,7 @@ extern "C"
   /*
    * @brief C custom defined SMLADX for M3 and M0 processors
    */
-  static __INLINE uint32_t __SMLADX(
+  __INLINE uint32_t __SMLADX(
   uint32_t x,
   uint32_t y,
   uint32_t sum)
@@ -945,7 +945,7 @@ extern "C"
   /*
    * @brief C custom defined SMLSDX for M3 and M0 processors
    */
-  static __INLINE uint32_t __SMLSDX(
+  __INLINE uint32_t __SMLSDX(
   uint32_t x,
   uint32_t y,
   uint32_t sum)
@@ -959,7 +959,7 @@ extern "C"
   /*
    * @brief C custom defined SMLALD for M3 and M0 processors
    */
-  static __INLINE uint64_t __SMLALD(
+  __INLINE uint64_t __SMLALD(
   uint32_t x,
   uint32_t y,
   uint64_t sum)
@@ -974,7 +974,7 @@ extern "C"
   /*
    * @brief C custom defined SMLALDX for M3 and M0 processors
    */
-  static __INLINE uint64_t __SMLALDX(
+  __INLINE uint64_t __SMLALDX(
   uint32_t x,
   uint32_t y,
   uint64_t sum)
@@ -989,7 +989,7 @@ extern "C"
   /*
    * @brief C custom defined SMUAD for M3 and M0 processors
    */
-  static __INLINE uint32_t __SMUAD(
+  __INLINE uint32_t __SMUAD(
   uint32_t x,
   uint32_t y)
   {
@@ -1001,7 +1001,7 @@ extern "C"
   /*
    * @brief C custom defined SMUSD for M3 and M0 processors
    */
-  static __INLINE uint32_t __SMUSD(
+  __INLINE uint32_t __SMUSD(
   uint32_t x,
   uint32_t y)
   {
@@ -1013,7 +1013,7 @@ extern "C"
   /*
    * @brief C custom defined SXTB16 for M3 and M0 processors
    */
-  static __INLINE uint32_t __SXTB16(
+  __INLINE uint32_t __SXTB16(
   uint32_t x)
   {
     return ((uint32_t)(((((q31_t)x << 24) >> 24) & (q31_t)0x0000FFFF) |
@@ -4792,7 +4792,7 @@ void arm_rfft_fast_f32(
    * @param[in]     in  input sample to process
    * @return out processed output sample.
    */
-  static __INLINE float32_t arm_pid_f32(
+  __INLINE float32_t arm_pid_f32(
   arm_pid_instance_f32 * S,
   float32_t in)
   {
@@ -4826,7 +4826,7 @@ void arm_rfft_fast_f32(
    * In order to avoid overflows completely the input signal must be scaled down by 2 bits as there are four additions.
    * After all multiply-accumulates are performed, the 2.62 accumulator is truncated to 1.32 format and then saturated to 1.31 format.
    */
-  static __INLINE q31_t arm_pid_q31(
+  __INLINE q31_t arm_pid_q31(
   arm_pid_instance_q31 * S,
   q31_t in)
   {
@@ -4873,7 +4873,7 @@ void arm_rfft_fast_f32(
    * After all additions have been performed, the accumulator is truncated to 34.15 format by discarding low 15 bits.
    * Lastly, the accumulator is saturated to yield a result in 1.15 format.
    */
-  static __INLINE q15_t arm_pid_q15(
+  __INLINE q15_t arm_pid_q15(
   arm_pid_instance_q15 * S,
   q15_t in)
   {
@@ -4984,7 +4984,7 @@ void arm_rfft_fast_f32(
    * @param[out] pIalpha  points to output two-phase orthogonal vector axis alpha
    * @param[out] pIbeta   points to output two-phase orthogonal vector axis beta
    */
-  static __INLINE void arm_clarke_f32(
+  __INLINE void arm_clarke_f32(
   float32_t Ia,
   float32_t Ib,
   float32_t * pIalpha,
@@ -5011,7 +5011,7 @@ void arm_rfft_fast_f32(
    * The accumulator maintains 1.31 format by truncating lower 31 bits of the intermediate multiplication in 2.62 format.
    * There is saturation on the addition, hence there is no risk of overflow.
    */
-  static __INLINE void arm_clarke_q31(
+  __INLINE void arm_clarke_q31(
   q31_t Ia,
   q31_t Ib,
   q31_t * pIalpha,
@@ -5081,7 +5081,7 @@ void arm_rfft_fast_f32(
    * @param[out] pIa     points to output three-phase coordinate <code>a</code>
    * @param[out] pIb     points to output three-phase coordinate <code>b</code>
    */
-  static __INLINE void arm_inv_clarke_f32(
+  __INLINE void arm_inv_clarke_f32(
   float32_t Ialpha,
   float32_t Ibeta,
   float32_t * pIa,
@@ -5108,7 +5108,7 @@ void arm_rfft_fast_f32(
    * The accumulator maintains 1.31 format by truncating lower 31 bits of the intermediate multiplication in 2.62 format.
    * There is saturation on the subtraction, hence there is no risk of overflow.
    */
-  static __INLINE void arm_inv_clarke_q31(
+  __INLINE void arm_inv_clarke_q31(
   q31_t Ialpha,
   q31_t Ibeta,
   q31_t * pIa,
@@ -5191,7 +5191,7 @@ void arm_rfft_fast_f32(
    * The function implements the forward Park transform.
    *
    */
-  static __INLINE void arm_park_f32(
+  __INLINE void arm_park_f32(
   float32_t Ialpha,
   float32_t Ibeta,
   float32_t * pId,
@@ -5222,7 +5222,7 @@ void arm_rfft_fast_f32(
    * The accumulator maintains 1.31 format by truncating lower 31 bits of the intermediate multiplication in 2.62 format.
    * There is saturation on the addition and subtraction, hence there is no risk of overflow.
    */
-  static __INLINE void arm_park_q31(
+  __INLINE void arm_park_q31(
   q31_t Ialpha,
   q31_t Ibeta,
   q31_t * pId,
@@ -5304,7 +5304,7 @@ void arm_rfft_fast_f32(
    * @param[in]  sinVal   sine value of rotation angle theta
    * @param[in]  cosVal   cosine value of rotation angle theta
    */
-  static __INLINE void arm_inv_park_f32(
+  __INLINE void arm_inv_park_f32(
   float32_t Id,
   float32_t Iq,
   float32_t * pIalpha,
@@ -5335,7 +5335,7 @@ void arm_rfft_fast_f32(
    * The accumulator maintains 1.31 format by truncating lower 31 bits of the intermediate multiplication in 2.62 format.
    * There is saturation on the addition, hence there is no risk of overflow.
    */
-  static __INLINE void arm_inv_park_q31(
+  __INLINE void arm_inv_park_q31(
   q31_t Id,
   q31_t Iq,
   q31_t * pIalpha,
@@ -5430,7 +5430,7 @@ void arm_rfft_fast_f32(
    * @return y processed output sample.
    *
    */
-  static __INLINE float32_t arm_linear_interp_f32(
+  __INLINE float32_t arm_linear_interp_f32(
   arm_linear_interp_instance_f32 * S,
   float32_t x)
   {
@@ -5487,7 +5487,7 @@ void arm_rfft_fast_f32(
    * This function can support maximum of table size 2^12.
    *
    */
-  static __INLINE q31_t arm_linear_interp_q31(
+  __INLINE q31_t arm_linear_interp_q31(
   q31_t * pYData,
   q31_t x,
   uint32_t nValues)
@@ -5545,7 +5545,7 @@ void arm_rfft_fast_f32(
    * This function can support maximum of table size 2^12.
    *
    */
-  static __INLINE q15_t arm_linear_interp_q15(
+  __INLINE q15_t arm_linear_interp_q15(
   q15_t * pYData,
   q31_t x,
   uint32_t nValues)
@@ -5602,7 +5602,7 @@ void arm_rfft_fast_f32(
    * Input sample <code>x</code> is in 12.20 format which contains 12 bits for table index and 20 bits for fractional part.
    * This function can support maximum of table size 2^12.
    */
-  static __INLINE q7_t arm_linear_interp_q7(
+  __INLINE q7_t arm_linear_interp_q7(
   q7_t * pYData,
   q31_t x,
   uint32_t nValues)
@@ -5742,7 +5742,7 @@ void arm_rfft_fast_f32(
    * @return The function returns ARM_MATH_SUCCESS if input value is positive value or ARM_MATH_ARGUMENT_ERROR if
    * <code>in</code> is negative value and returns zero output for negative values.
    */
-  static __INLINE arm_status arm_sqrt_f32(
+  __INLINE arm_status arm_sqrt_f32(
   float32_t in,
   float32_t * pOut)
   {
@@ -5802,7 +5802,7 @@ void arm_rfft_fast_f32(
   /**
    * @brief floating-point Circular write function.
    */
-  static __INLINE void arm_circularWrite_f32(
+  __INLINE void arm_circularWrite_f32(
   int32_t * circBuffer,
   int32_t L,
   uint16_t * writeOffset,
@@ -5847,7 +5847,7 @@ void arm_rfft_fast_f32(
   /**
    * @brief floating-point Circular Read function.
    */
-  static __INLINE void arm_circularRead_f32(
+  __INLINE void arm_circularRead_f32(
   int32_t * circBuffer,
   int32_t L,
   int32_t * readOffset,
@@ -5902,7 +5902,7 @@ void arm_rfft_fast_f32(
   /**
    * @brief Q15 Circular write function.
    */
-  static __INLINE void arm_circularWrite_q15(
+  __INLINE void arm_circularWrite_q15(
   q15_t * circBuffer,
   int32_t L,
   uint16_t * writeOffset,
@@ -5946,7 +5946,7 @@ void arm_rfft_fast_f32(
   /**
    * @brief Q15 Circular Read function.
    */
-  static __INLINE void arm_circularRead_q15(
+  __INLINE void arm_circularRead_q15(
   q15_t * circBuffer,
   int32_t L,
   int32_t * readOffset,
@@ -6002,7 +6002,7 @@ void arm_rfft_fast_f32(
   /**
    * @brief Q7 Circular write function.
    */
-  static __INLINE void arm_circularWrite_q7(
+  __INLINE void arm_circularWrite_q7(
   q7_t * circBuffer,
   int32_t L,
   uint16_t * writeOffset,
@@ -6046,7 +6046,7 @@ void arm_rfft_fast_f32(
   /**
    * @brief Q7 Circular Read function.
    */
-  static __INLINE void arm_circularRead_q7(
+  __INLINE void arm_circularRead_q7(
   q7_t * circBuffer,
   int32_t L,
   int32_t * readOffset,
@@ -6749,7 +6749,7 @@ void arm_rfft_fast_f32(
   * @param[in]     Y  interpolation coordinate.
   * @return out interpolated value.
   */
-  static __INLINE float32_t arm_bilinear_interp_f32(
+  __INLINE float32_t arm_bilinear_interp_f32(
   const arm_bilinear_interp_instance_f32 * S,
   float32_t X,
   float32_t Y)
@@ -6815,7 +6815,7 @@ void arm_rfft_fast_f32(
   * @param[in]     Y  interpolation coordinate in 12.20 format.
   * @return out interpolated value.
   */
-  static __INLINE q31_t arm_bilinear_interp_q31(
+  __INLINE q31_t arm_bilinear_interp_q31(
   arm_bilinear_interp_instance_q31 * S,
   q31_t X,
   q31_t Y)
@@ -6889,7 +6889,7 @@ void arm_rfft_fast_f32(
   * @param[in]     Y  interpolation coordinate in 12.20 format.
   * @return out interpolated value.
   */
-  static __INLINE q15_t arm_bilinear_interp_q15(
+  __INLINE q15_t arm_bilinear_interp_q15(
   arm_bilinear_interp_instance_q15 * S,
   q31_t X,
   q31_t Y)
@@ -6967,7 +6967,7 @@ void arm_rfft_fast_f32(
   * @param[in]     Y  interpolation coordinate in 12.20 format.
   * @return out interpolated value.
   */
-  static __INLINE q7_t arm_bilinear_interp_q7(
+  __INLINE q7_t arm_bilinear_interp_q7(
   arm_bilinear_interp_instance_q7 * S,
   q31_t X,
   q31_t Y)
