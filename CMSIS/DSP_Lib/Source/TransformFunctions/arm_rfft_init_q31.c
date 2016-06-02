@@ -67,7 +67,7 @@
 */
 
 
-static const q31_t realCoefAQ31[8192] = {
+const q31_t realCoefAQ31[8192] = {
     0x40000000, 0xc0000000, 0x3ff36f02, 0xc000013c,
     0x3fe6de05, 0xc00004ef, 0x3fda4d09, 0xc0000b1a,
     0x3fcdbc0f, 0xc00013bd, 0x3fc12b16, 0xc0001ed8,
@@ -2135,7 +2135,7 @@ static const q31_t realCoefAQ31[8192] = {
 *    
 */
 
-static const q31_t realCoefBQ31[8192] = {
+const q31_t realCoefBQ31[8192] = {
     0x40000000, 0x40000000, 0x400c90fe, 0x3ffffec4,
     0x401921fb, 0x3ffffb11, 0x4025b2f7, 0x3ffff4e6,
     0x403243f1, 0x3fffec43, 0x403ed4ea, 0x3fffe128,
